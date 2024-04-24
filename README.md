@@ -25,3 +25,9 @@ greedy algorithms via Huffman Coding.
 
 # Original repo:
 https://github.com/bhrigu123/huffman-coding
+
+# Additional notes
+Code is a bit messy in regards of separating compress() and decompress() functions, so I did a little dirty trick for giving the illusion of separating them.
+As the og author said: The decompress() function uses the object created from the compress() function as input since the info for decompress is stored in this object (i.e. the huffman tree)
+What I did is declaring the object (in this case the file) as a global variable and then using the compress() func as a literal input in the decompress() func and it doesn't seems to be any
+notable problem such as file dupe or text getting messy, so I just left it that way, a bit lazy I know, but it works.
