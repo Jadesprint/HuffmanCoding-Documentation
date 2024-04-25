@@ -26,6 +26,9 @@ greedy algorithms via Huffman Coding.
 # Original repo:
 https://github.com/bhrigu123/huffman-coding
 
+# Monocraft font repo:
+https://github.com/IdreesInc/Monocraft/releases/tag/v3.0
+
 # Additional notes
 Code is a bit messy in regards of separating compress() and decompress() functions, so I did a little dirty trick for giving the illusion of separating them.
 As the og author said: The decompress() function uses the object created from the compress() function as input since the info for decompress is stored in this object (i.e. the huffman tree)
