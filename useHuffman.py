@@ -1,10 +1,16 @@
 import huffman
 import sys
+#Using tkinter as the GUI manager
 from tkinter import*
 from tkinter import ttk
 import tkinter.filedialog
+
+#This is where the file is requested from the user
 path = tkinter.filedialog.askopenfile(mode="r",defaultextension=".txt")
+#And here we create an object from the huffman.py script for later manipulation
 h = huffman.HuffmanCoding(path.name)
+
+#Comrpession function
 def comp():
     
 
@@ -13,8 +19,12 @@ def comp():
     fr.grid()
 
     with open(path.name, mode="r", encoding="UTF-8") as file:
+        #Reading the file once, returning 25 bytes for a little preview of the text
         preview = file.read(25)
+        #Reading it a second time for actual usage
         content = file.read()
+
+    #Frequency dict is made from the text
     frequency = huffman.HuffmanCoding.make_frequency_dict(any, content)
 
     ttk.Label(
@@ -44,7 +54,7 @@ def comp():
 
 
 
-
+    #Output pathm where .bin is stored
     output_path = h.compress()
     ttk.Label(
         fr,
@@ -52,9 +62,11 @@ def comp():
         font="Monocraft"
     ).grid(row=4, column=1)
 
-    
+#Mirrored function for decompression
 def decomp():
+    #CHECK ADDITIONAL NOTES IN REPO FOR FURTHER EXPLANATION ON THIS DIRTY TRICK
     decom_path = h.decompress(h.compress())
+    
     w = Tk()
     fr = ttk.Frame(
         w,
